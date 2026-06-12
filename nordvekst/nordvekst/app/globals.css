@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/*
+  Nordvekst design tokens.
+  Palette: Norwegian spruce ink on fog white. One warm accent (rav/amber),
+  used only where attention earns money. Everything else stays quiet.
+*/
+@theme {
+  --color-fog: #f5f5f1; /* page background */
+  --color-paper: #fcfcfa; /* cards */
+  --color-ink: #14201a; /* spruce-green ink — primary text */
+  --color-pine: #33493d; /* secondary text */
+  --color-moss: #5d7265; /* muted text */
+  --color-mist: #e1e1d8; /* hairlines */
+  --color-rav: #b0652a; /* amber accent */
+
+  --font-sans: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-fog);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-fog);
+}
+
+/* Visible keyboard focus, brand-coloured */
+:focus-visible {
+  outline: 2px solid var(--color-rav);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* The vertical measurement rule — ties sections to the "measurable growth" idea */
+.rule-tick {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--color-mist) 0,
+    var(--color-mist) 1px,
+    transparent 1px,
+    transparent 24px
+  );
+}
